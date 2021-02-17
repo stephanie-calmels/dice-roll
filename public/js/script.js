@@ -62,6 +62,21 @@ const app = {
         
     },
 
+    createFace: () => {
+        const loader = new THREE.TextureLoader();
+        const face1 = loader.load('/images/1.png');
+        const material = new THREE.MeshBasicMaterial( { map: face1 });
+        const geometry = new THREE.PlaneGeometry( 10, 10, 10 );
+        app.face = new THREE.Mesh( geometry, material );
+        app.face.position.z = 0;
+        app.face.position.x = 0;
+        app.face.position.y = 0;
+
+        app.scene.add( app.face );
+
+    },
+
+
 
     render: () => {
        app.animation = requestAnimationFrame(app.render);
